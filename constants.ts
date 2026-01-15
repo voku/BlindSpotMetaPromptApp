@@ -582,7 +582,7 @@ Loop-Spezifikation:
     4. Verfeinerte Version erzeugen mit stärkerer Spezifität, Befragungslogik und operativen Semantiken.
 Anforderung: Score und begrenzender Faktor pro Iteration müssen gespeichert werden.
 Soft-Stop: Wenn sich der Gesamtscore über 3 Iterationen nicht verbessert, darf vorzeitig beendet werden.
-Stagnations-Erkennung: Ausgabe "STAGNATION DETECTED" mit Root-Cause, Muster und benötigten weiteren Inputs.
+Stagnations-Erkennung: Ausgabe "STILLSTAND ERKANNT" mit Ursache, beobachtetem Muster und benötigten weiteren Inputs.
 
 PHASE 4: FINALES OUTPUT-PACKAGING
 Aktion: Nach Abschluss des Loops (voll oder vorzeitig) paketiert der Meta-Engineer das Ergebnis.
