@@ -12,7 +12,9 @@ import {
   RefreshCw,
   Fingerprint,
   Check,
-  Wand2
+  Wand2,
+  Github,
+  Heart
 } from 'lucide-react';
 import { MetaPromptState, GenerationStatus, Language } from './types';
 import { DEFAULT_FORM_STATE, PROTOCOLS, UI_TEXT } from './constants';
@@ -538,6 +540,24 @@ export default function App() {
               )}
            </div>
         </div>
+
+        {/* Footer */}
+        <footer className="mt-8 pt-6 border-t border-slate-200 text-center">
+           <a 
+             href="https://github.com/voku/BlindSpotMetaPromptApp" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-indigo-600 transition-colors group"
+           >
+             <Github size={16} className="group-hover:scale-110 transition-transform" />
+             <span>{lang === 'de' ? 'Beitragen auf GitHub' : 'Contribute on GitHub'}</span>
+           </a>
+           <div className="mt-2 text-xs text-slate-400 flex items-center justify-center gap-1">
+             <span>{lang === 'de' ? 'Gemacht mit' : 'Made with'}</span>
+             <Heart size={12} className="text-red-500 fill-red-500" />
+             <span>{lang === 'de' ? 'von der Community' : 'by the community'}</span>
+           </div>
+        </footer>
       </div>
     </div>
   );
