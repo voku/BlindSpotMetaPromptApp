@@ -61,7 +61,7 @@ export const UI_TEXT = {
       deployDesc: 'Ready to generate the Prompt-for-a-Prompt?',
       generated: 'L2 Meta-Prompt (Prompt-for-a-Prompt)',
       instructionsTitle: 'Instructions:',
-      instructions: 'Paste this into <strong>Claude 3.5 Sonnet</strong> or <strong>GPT-4o</strong>. This Meta-Prompt will instruct the AI to <strong>write the final System Prompt</strong> for your agent.'
+      instructions: 'Paste this into <strong>Claude</strong>, <strong>Gemini</strong> or <strong>ChatGPT</strong>. This Meta-Prompt will instruct the AI to <strong>write the final System Prompt</strong> for your agent.'
     },
     labels: {
       domain: 'Domain of Analysis (CONTEXT)',
@@ -115,7 +115,7 @@ export const UI_TEXT = {
       deployDesc: 'Bereit, den Prompt-für-den-Prompt zu generieren?',
       generated: 'L2 Meta-Prompt (Prompt-für-den-Prompt)',
       instructionsTitle: 'Anleitung:',
-      instructions: 'Füge dies in <strong>Claude 3.5 Sonnet</strong> oder <strong>GPT-4o</strong> ein. Dieser Meta-Prompt weist die KI an, den <strong>finalen System Prompt</strong> für deinen Agenten zu schreiben.'
+      instructions: 'Füge dies in <strong>Claude</strong>, <strong>Gemini</strong> oder <strong>ChatGPT</strong> ein. Dieser Meta-Prompt weist die KI an, den <strong>finalen System Prompt</strong> für deinen Agenten zu schreiben.'
     },
     labels: {
       domain: 'Analysebereich (KONTEXT)',
