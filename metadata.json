@@ -1,0 +1,5 @@
+{
+  "name": "L2 Meta-Prompt Engine",
+  "description": "A sophisticated engine for generating high-fidelity 'System Prompts' (L2 Meta-Prompts). It constructs an Agent persona, defines intake protocols, and structures processing logic to instruct other LLMs (Claude, GPT-4) to perform complex tasks.",
+  "requestFramePermissions": []
+}
