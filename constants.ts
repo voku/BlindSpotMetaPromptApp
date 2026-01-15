@@ -33,6 +33,11 @@ Action: Provide one single, binary action step.
 Requirement: It must be immediate and uncomfortable. "Do this or admit you gave up."
 Output: A single command.`,
       includeScorecard: true,
+      contextLoop: {
+        enabled: true,
+        maxRounds: 5,
+        requireNonGeneralDomain: true
+      }
     },
     interaction: {
       architectName: 'Blind Spot Architect',
@@ -75,6 +80,9 @@ export const UI_TEXT = {
       personaPlaceholder: 'e.g. Blind Spot Architect',
       scorecard: 'Enforce JSON Output',
       scorecardSub: 'Instructs the prompt writer to include a JSON schema requirement.',
+      contextLoop: 'Interactive Context Loop',
+      contextLoopSub: 'Allow the agent to ask follow-up questions until the Focus Area and domain are concrete.',
+      contextLoopMaxRounds: 'Max clarification rounds',
       advanced: 'Advanced Configuration',
       autoConfig: 'Auto-Configured',
       brutality: 'Tone & Personality',
@@ -129,6 +137,9 @@ export const UI_TEXT = {
       personaPlaceholder: 'z.B. Der unbestechliche Spiegel',
       scorecard: 'JSON Output erzwingen',
       scorecardSub: 'Weist den Prompt-Schreiber an, ein JSON-Schema einzufügen.',
+      contextLoop: 'Interaktiver Kontext-Loop',
+      contextLoopSub: 'Erlaubt dem Agenten Rückfragen, bis Fokusbereich und Domäne konkret sind.',
+      contextLoopMaxRounds: 'Maximale Rückfrage-Runden',
       advanced: 'Erweiterte Konfiguration',
       autoConfig: 'Automatisch konfiguriert',
       brutality: 'Ton & Persönlichkeit',
@@ -626,6 +637,8 @@ Design the "Final Blind Spot Analysis Prompt". This prompt must force the Analys
 
 3. Language Protocol: The Analysis Model must conduct the entire session (questions and analysis) in English.
 
+{{CONTEXT_LOOP_SECTION}}
+
 4. Phase 0 (Mandatory): The Analysis Model MUST be instructed to ask these specific clarifying questions before running the phases. It must not guess.
    Required Questions:
 {{INTAKE_QUESTIONS}}
@@ -659,6 +672,8 @@ Entwirf den "Finalen Blinder Fleck Analyse Prompt". Dieser Prompt muss das Analy
 2. Kontext-Injektion: Du musst den Fokus-Bereich und die Ziel-Angst direkt in die Anweisungen injizieren, damit die Analyse ultra-spezifisch ist.
 
 3. Sprach-Protokoll: Das Analyse-Modell muss die gesamte Sitzung (Fragen und Analyse) auf Deutsch durchführen.
+
+{{CONTEXT_LOOP_SECTION}}
 
 4. Phase 0 (Pflicht): Das Analyse-Modell MUSS angewiesen werden, diese spezifischen Klärungsfragen zu stellen, bevor die Phasen beginnen:
    Pflicht-Fragen:
