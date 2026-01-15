@@ -317,6 +317,63 @@ PHASE 4 SPECIFICATION:
 Action: Force the user to adopt ONE specific protocol from Entity X immediately.
 Requirement: "Install" the upgrade.
 Output: The specific protocol instruction.`
+    },
+    {
+      id: 'rbs-mrl',
+      name: 'Recursive Blind Spot Meta-Refinement Loop',
+      icon: Bot,
+      description: 'A meta-engineering protocol that iteratively refines blind spot system prompts through mandatory context interrogation and 10-round self-optimization.',
+      brutality: 'Unvarnished Truth (Maximum Brutality)',
+      questions: `MANDATORY CONTEXT INTERROGATION (Before prompt generation):
+- What is the Focus Area? (Domain, decision, project, behavior)
+- What is the Target Tension? (Fear, failure mode, uncertainty, avoidance)
+- What is the Operational Time Horizon? (e.g., 3 months, 1 year)
+- What resources or constraints exist? (time, money, skills, dependencies)
+- Who or what is affected by this Focus Area? (self, team, company, system)
+- What does success look like in concrete terms?
+- What does failure look like in concrete terms?
+- What is already known, assumed, or taken for granted?`,
+      phases: `PHASE SPECIFICATIONS
+
+PHASE 1: CONTEXT INTERROGATION (MANDATORY)
+Action: The Meta-Engineer must collect all mandatory questions before generating any prompt.
+Requirement: No guessing. If incomplete, request clarification. No placeholders.
+Output: Context dataset for prompt construction.
+
+PHASE 2: INITIAL PROMPT GENERATION
+Action: The Meta-Engineer generates the first Blind Spot System Prompt using the provided protocol and interrogation data.
+Requirement: Do not perform blind spot analysis. Do not psychoanalyze. Do not soften tone.
+Output: Version 1 of the System Prompt.
+
+PHASE 3: META-REFINEMENT LOOP (10 ROUNDS)
+Action: The Meta-Engineer runs the Recursive Blind Spot Meta-Refinement Loop (RBS-MRL).
+Loop Specification:
+  For iteration i = 1 to 10:
+    1. Read previous prompt version.
+    2. Score expected effectiveness:
+         - Context Capture (0–10)
+         - Analytical Sharpness (0–10)
+         - Operational Clarity (0–10)
+    3. Identify limiting factor.
+    4. Produce refined version with improved specificity, interrogation logic, and operational semantics.
+Requirement: Must store score + limiting factor per iteration.
+Soft Stop: If total score does not improve for 3 consecutive iterations, loop may end early.
+Stagnation Detection: Output STAGNATION DETECTED with root-cause, observed pattern, and Additional Input Required.
+
+PHASE 4: FINAL OUTPUT PACKAGING
+Action: After loop completion (full or early exit), the Meta-Engineer packages outputs.
+Output Includes:
+  1. Final Best Prompt (highest scoring)
+  2. Iteration Log Table
+     Columns:
+       - Iteration
+       - Score Context
+       - Score Sharpness
+       - Score Clarity
+       - Total
+       - Limiting Factor
+  3. Stagnation Report (if applicable)
+  4. Additional Inputs Required (if applicable)`
     }
   ],
   de: [
@@ -484,6 +541,63 @@ PHASE 4 SPEZIFIKATION:
 Aktion: Zwinge den Nutzer, SOFORT ein spezifisches Protokoll von Entität X zu übernehmen.
 Anforderung: "Installiere" das Upgrade.
 Output: Die spezifische Protokoll-Anweisung.`
+    },
+    {
+      id: 'rbs-mrl',
+      name: 'Rekursiver Blinder-Fleck Meta-Optimierungs-Loop',
+      icon: Bot,
+      description: 'Ein Meta-Engineering-Protokoll, das System-Prompts für Blind-Spot-Analysen durch verpflichtende Kontextbefragung und 10 Runden Selbst-Optimierung verfeinert.',
+      brutality: 'Ungeschminkte Wahrheit (Maximale Härte)',
+      questions: `VERPFLICHTENDE KONTEXT-BEFRAGUNG (Vor der Prompt-Generierung):
+- Was ist der Fokusbereich? (Domäne, Entscheidung, Projekt, Verhalten)
+- Was ist die Zielspannung? (Angst, Scheitermodus, Unsicherheit, Vermeidung)
+- Was ist der operative Zeithorizont? (z.B. 3 Monate, 1 Jahr)
+- Welche Ressourcen oder Einschränkungen existieren? (Zeit, Geld, Fähigkeiten, Abhängigkeiten)
+- Wer oder was ist vom Fokusbereich betroffen? (Selbst, Team, Unternehmen, System)
+- Wie sieht Erfolg konkret aus?
+- Wie sieht Scheitern konkret aus?
+- Was ist bereits bekannt, angenommen oder selbstverständlich?`,
+      phases: `PHASEN-SPEZIFIKATIONEN
+
+PHASE 1: KONTEXT-BEFRAGUNG (PFLICHT)
+Aktion: Der Meta-Engineer muss alle verpflichtenden Fragen erheben, bevor ein Prompt generiert wird.
+Anforderung: Kein Raten. Bei Unvollständigkeit nachfragen. Keine Platzhalter.
+Output: Kontext-Datensatz für die Prompt-Konstruktion.
+
+PHASE 2: ERST-ERZEUGUNG DES PROMPTS
+Aktion: Der Meta-Engineer erzeugt den ersten System-Prompt basierend auf Protokoll und Befragungsdaten.
+Anforderung: Keine Blind-Spot-Analyse durchführen. Keine Psychoanalyse. Ton nicht abschwächen.
+Output: Version 1 des System-Prompts.
+
+PHASE 3: META-OPTIMIERUNGS-LOOP (10 RUNDEN)
+Aktion: Der Meta-Engineer führt den Rekursiven Blinder-Fleck Meta-Optimierungs-Loop (RBS-MRL) aus.
+Loop-Spezifikation:
+  Für Iteration i = 1 bis 10:
+    1. Vorherige Prompt-Version lesen.
+    2. Erwartete Effektivität bewerten:
+         - Kontext-Abdeckung (0–10)
+         - Analytische Schärfe (0–10)
+         - Operative Klarheit (0–10)
+    3. Begrenzenden Faktor identifizieren.
+    4. Verfeinerte Version erzeugen mit stärkerer Spezifität, Befragungslogik und operativen Semantiken.
+Anforderung: Score und begrenzender Faktor pro Iteration müssen gespeichert werden.
+Soft-Stop: Wenn sich der Gesamtscore über 3 Iterationen nicht verbessert, darf vorzeitig beendet werden.
+Stagnations-Erkennung: Ausgabe "STILLSTAND ERKANNT" mit Ursache, beobachtetem Muster und benötigten weiteren Inputs.
+
+PHASE 4: FINALES OUTPUT-PACKAGING
+Aktion: Nach Abschluss des Loops (voll oder vorzeitig) paketiert der Meta-Engineer das Ergebnis.
+Output enthält:
+  1. Final Best Prompt (höchster Score)
+  2. Iterations-Log Tabelle
+     Spalten:
+       - Iteration
+       - Kontext-Score
+       - Schärfe-Score
+       - Klarheits-Score
+       - Gesamt
+       - Begrenzender Faktor
+  3. Stagnations-Report (falls zutreffend)
+  4. Weitere benötigte Inputs (falls zutreffend)`
     }
   ]
 };
