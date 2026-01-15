@@ -639,11 +639,11 @@ Design the "Final Blind Spot Analysis Prompt". This prompt must force the Analys
 
 {{CONTEXT_LOOP_SECTION}}
 
-4. Phase 0 (Mandatory): The Analysis Model MUST be instructed to ask these specific clarifying questions before running the phases. It must not guess.
+5. Phase 0 (Mandatory): The Analysis Model MUST be instructed to ask these specific clarifying questions before running the phases. It must not guess.
    Required Questions:
 {{INTAKE_QUESTIONS}}
 
-5. Analysis Phases: The Analysis Model must follow this exact protocol:
+6. Analysis Phases: The Analysis Model must follow this exact protocol:
 {{ANALYSIS_PHASES}}
 
 {{SCORECARD_SECTION}}
@@ -675,11 +675,11 @@ Entwirf den "Finalen Blinder Fleck Analyse Prompt". Dieser Prompt muss das Analy
 
 {{CONTEXT_LOOP_SECTION}}
 
-4. Phase 0 (Pflicht): Das Analyse-Modell MUSS angewiesen werden, diese spezifischen Klärungsfragen zu stellen, bevor die Phasen beginnen:
+5. Phase 0 (Pflicht): Das Analyse-Modell MUSS angewiesen werden, diese spezifischen Klärungsfragen zu stellen, bevor die Phasen beginnen:
    Pflicht-Fragen:
 {{INTAKE_QUESTIONS}}
 
-5. Analyse-Phasen: Das Analyse-Modell muss exakt diesem Protokoll folgen:
+6. Analyse-Phasen: Das Analyse-Modell muss exakt diesem Protokoll folgen:
 {{ANALYSIS_PHASES}}
 
 {{SCORECARD_SECTION}}
@@ -692,7 +692,7 @@ Keine Erklärungen.`
 
 export const FRAGILITY_SCORECARD_TEMPLATES = {
   en: `
-6. Structured Output Requirement
+7. Structured Output Requirement
 The Analysis Model must be instructed to conclude its response with a JSON object strictly following this structure:
 {
   "summary": "string",
@@ -702,7 +702,7 @@ The Analysis Model must be instructed to conclude its response with a JSON objec
 }
 `,
   de: `
-6. Strukturierte Output Anforderung
+7. Strukturierte Output Anforderung
 Das Analyse-Modell muss angewiesen werden, seine Antwort mit einem JSON Objekt zu beenden, das exakt dieser Struktur folgt:
 {
   "zusammenfassung": "string",
