@@ -33,6 +33,11 @@ Action: Provide one single, binary action step.
 Requirement: It must be immediate and uncomfortable. "Do this or admit you gave up."
 Output: A single command.`,
       includeScorecard: true,
+      contextLoop: {
+        enabled: true,
+        maxRounds: 5,
+        requireNonGeneralDomain: true
+      }
     },
     interaction: {
       architectName: 'Blind Spot Architect',
@@ -75,6 +80,9 @@ export const UI_TEXT = {
       personaPlaceholder: 'e.g. Blind Spot Architect',
       scorecard: 'Enforce JSON Output',
       scorecardSub: 'Instructs the prompt writer to include a JSON schema requirement.',
+      contextLoop: 'Interactive Context Loop',
+      contextLoopSub: 'Allow the agent to ask follow-up questions until the Focus Area and domain are concrete.',
+      contextLoopMaxRounds: 'Max clarification rounds',
       advanced: 'Advanced Configuration',
       autoConfig: 'Auto-Configured',
       brutality: 'Tone & Personality',
@@ -129,6 +137,9 @@ export const UI_TEXT = {
       personaPlaceholder: 'z.B. Der unbestechliche Spiegel',
       scorecard: 'JSON Output erzwingen',
       scorecardSub: 'Weist den Prompt-Schreiber an, ein JSON-Schema einzufügen.',
+      contextLoop: 'Interaktiver Kontext-Loop',
+      contextLoopSub: 'Erlaubt dem Agenten Rückfragen, bis Fokusbereich und Domäne konkret sind.',
+      contextLoopMaxRounds: 'Maximale Rückfrage-Runden',
       advanced: 'Erweiterte Konfiguration',
       autoConfig: 'Automatisch konfiguriert',
       brutality: 'Ton & Persönlichkeit',
@@ -626,11 +637,13 @@ Design the "Final Blind Spot Analysis Prompt". This prompt must force the Analys
 
 3. Language Protocol: The Analysis Model must conduct the entire session (questions and analysis) in English.
 
-4. Phase 0 (Mandatory): The Analysis Model MUST be instructed to ask these specific clarifying questions before running the phases. It must not guess.
+{{CONTEXT_LOOP_SECTION}}
+
+5. Phase 0 (Mandatory): The Analysis Model MUST be instructed to ask these specific clarifying questions before running the phases. It must not guess.
    Required Questions:
 {{INTAKE_QUESTIONS}}
 
-5. Analysis Phases: The Analysis Model must follow this exact protocol:
+6. Analysis Phases: The Analysis Model must follow this exact protocol:
 {{ANALYSIS_PHASES}}
 
 {{SCORECARD_SECTION}}
@@ -660,11 +673,13 @@ Entwirf den "Finalen Blinder Fleck Analyse Prompt". Dieser Prompt muss das Analy
 
 3. Sprach-Protokoll: Das Analyse-Modell muss die gesamte Sitzung (Fragen und Analyse) auf Deutsch durchführen.
 
-4. Phase 0 (Pflicht): Das Analyse-Modell MUSS angewiesen werden, diese spezifischen Klärungsfragen zu stellen, bevor die Phasen beginnen:
+{{CONTEXT_LOOP_SECTION}}
+
+5. Phase 0 (Pflicht): Das Analyse-Modell MUSS angewiesen werden, diese spezifischen Klärungsfragen zu stellen, bevor die Phasen beginnen:
    Pflicht-Fragen:
 {{INTAKE_QUESTIONS}}
 
-5. Analyse-Phasen: Das Analyse-Modell muss exakt diesem Protokoll folgen:
+6. Analyse-Phasen: Das Analyse-Modell muss exakt diesem Protokoll folgen:
 {{ANALYSIS_PHASES}}
 
 {{SCORECARD_SECTION}}
@@ -677,7 +692,7 @@ Keine Erklärungen.`
 
 export const FRAGILITY_SCORECARD_TEMPLATES = {
   en: `
-6. Structured Output Requirement
+7. Structured Output Requirement
 The Analysis Model must be instructed to conclude its response with a JSON object strictly following this structure:
 {
   "summary": "string",
@@ -687,7 +702,7 @@ The Analysis Model must be instructed to conclude its response with a JSON objec
 }
 `,
   de: `
-6. Strukturierte Output Anforderung
+7. Strukturierte Output Anforderung
 Das Analyse-Modell muss angewiesen werden, seine Antwort mit einem JSON Objekt zu beenden, das exakt dieser Struktur folgt:
 {
   "zusammenfassung": "string",

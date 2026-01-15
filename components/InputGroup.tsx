@@ -31,6 +31,28 @@ export const TextInput: React.FC<TextInputProps> = ({ label, value, onChange, pl
   </div>
 );
 
+interface NumberInputProps {
+  label: string;
+  value: number;
+  onChange: (val: number) => void;
+  min?: number;
+  max?: number;
+}
+
+export const NumberInput: React.FC<NumberInputProps> = ({ label, value, onChange, min, max }) => (
+  <div className="flex flex-col gap-2 mb-5">
+    <label className="text-xs font-bold text-slate-500 uppercase tracking-wider ml-1">{label}</label>
+    <input
+      type="number"
+      className="w-full bg-white border border-slate-200 rounded-xl p-3 text-sm text-slate-700 font-medium focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 outline-none transition-all shadow-sm hover:border-indigo-300"
+      value={value}
+      onChange={(e) => onChange(parseInt(e.target.value) || min || 0)}
+      min={min}
+      max={max}
+    />
+  </div>
+);
+
 interface SelectInputProps {
   label: string;
   value: string;

@@ -19,7 +19,7 @@ import {
 import { MetaPromptState, GenerationStatus, Language } from './types';
 import { DEFAULT_FORM_STATE, PROTOCOLS, UI_TEXT } from './constants';
 import { generateMetaPrompt } from './services/promptService';
-import { TextInput, SelectInput, CheckboxInput } from './components/InputGroup';
+import { TextInput, SelectInput, CheckboxInput, NumberInput } from './components/InputGroup';
 
 // IDs must match the keys in UI_TEXT[lang].steps
 const STEPS = [
@@ -260,6 +260,24 @@ export default function App() {
                   checked={state.config.includeScorecard}
                   onChange={(v) => updateState('config', 'includeScorecard', v)}
                />
+            </div>
+
+            <div className="space-y-4 pt-6 border-t border-slate-200">
+               <CheckboxInput 
+                  label={t.labels.contextLoop}
+                  subLabel={t.labels.contextLoopSub}
+                  checked={state.config.contextLoop.enabled}
+                  onChange={(v) => updateState('config', 'contextLoop', { ...state.config.contextLoop, enabled: v })}
+               />
+               {state.config.contextLoop.enabled && (
+                 <NumberInput 
+                   label={t.labels.contextLoopMaxRounds}
+                   value={state.config.contextLoop.maxRounds}
+                   onChange={(v) => updateState('config', 'contextLoop', { ...state.config.contextLoop, maxRounds: v })}
+                   min={1}
+                   max={10}
+                 />
+               )}
             </div>
 
             <div className="space-y-4 pt-6 border-t border-slate-200">
